@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeViewContainer />} />
+        <Route path="/" element={< HomeViewContainer />} />
         <Route path="/characters/:id" element={<CharacterViewContainer />} />
         <Route path="/signin" element={< SignInViewContainer />} />
         <Route path="/signup" element={< SignUpViewContainer />} />
