@@ -1,3 +1,5 @@
+import { SignUpForm } from "../../components/SignUpForm/SignUpForm"
+
 export const SignUpViewContainer = () => {
-    return <div>Sign Up</div>;
-};
+    return <SignUpForm/>
+}
