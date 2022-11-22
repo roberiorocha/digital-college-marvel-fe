@@ -1,4 +1,4 @@
-import { SignInForm } from "../../components/SingnInForm/SignInForm"
+import { SignInForm } from "../../components/SingnInForm"
 import { useSignInForm } from "../../components/SingnInForm/useSignInForm"
 import { View } from "../../components/View"
 
@@ -12,6 +12,4 @@ export const SignInViewContainer = () => {
     return <View>
         <SignInForm {...form} />
     </View>
-
-
 }

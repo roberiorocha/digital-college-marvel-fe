@@ -1,58 +1,71 @@
 import { Header } from "../Header";
 import { HeaderNav } from "../HeaderNav";
 import { useFormik } from "formik";
+import { Field } from "../Field";
 
- export   const SignUpForm = () => {
-        const formik = useFormik({
-          initialValues: {            
-            email: '',
-            username: '',
-            password: '',
-          },
-          onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
-          },
-        });
+export const SignUpForm = ({
+  handleSubmit,
+  handleChange,
+  handleBlur,
+  isSubmitting,
+  values,
+  errors
+}) => {
 
-        return (
-            <>
-            <HeaderNav />
-            <Header />            
+  return (
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto h-full flex flex-col justify-center">
+      <h3 className="text-lg text-center">Sign Up</h3>
+      <div className="space-y-4">
+        <Field
+          label="Name"
+          type="text"
+          name="name"
+          value={values.name}
+          placeholder="your name"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={errors.name}
+        />
+        <Field
+          label="Email"
+          type="text"
+          name="email"
+          value={values.email}
+          placeholder="your@email"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={errors.email}
+        />
+        <Field
+          label="Password"
+          type="password"
+          name="password"
+          value={values.password}
+          placeholder="your password"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={errors.password}
+        />
+        <Field
+          label="Repeat Password"
+          type="password"
+          name="repeatpassword"
+          value={values.repeatpassword}
+          placeholder="your password"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          errorMessage={errors.repeatpassword}
+        />
+        <button
+          type="submit"
+          className="text-red-800 bg-gray-100 px-4 py-4 rounded-lg w-full"
+        >
+          Sign Up
+        </button>
+      </div>
+    </form>
+  );
+};
 
-            <form onSubmit={formik.handleSubmit}>
-
-              <label htmlFor="email">Email Address</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-
-              <label htmlFor="username">User Name</label>
-              <input
-                id="username"
-                name="username"
-                type="username"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-              
-              <label htmlFor="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />              
-
-              <button type="submit">Submit</button>
-            </form>
-            </>
-          );
-        };
-       
 
 
