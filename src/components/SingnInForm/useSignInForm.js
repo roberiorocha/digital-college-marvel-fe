@@ -7,12 +7,10 @@ const Schema = Yup.object({
         .required("Email is required"),
     password: Yup.string()
         .min(4, "Password must be at least 4 characters")
-        .required("Password is require"),
+        .required("Password is required"),
 });
 
-export const useSignInForm = ({
-    onSubmit
-}) => {
+export const useSignInForm = ({ onSubmit }) => {
     return useFormik({
         initialValues: {
             email: "",
@@ -24,4 +22,3 @@ export const useSignInForm = ({
         validateOnChange: false,
     });
 };
-

@@ -1,6 +1,3 @@
-import { Header } from "../Header";
-import { HeaderNav } from "../HeaderNav";
-import { useFormik } from "formik";
 import { Field } from "../Field";
 
 export const SignInForm = ({
@@ -8,12 +5,12 @@ export const SignInForm = ({
   handleChange,
   handleBlur,
   isSubmitting,
-  values,
-  errors
+  values = {},
+  errors = {},
+  className,
 }) => {
-
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto h-full flex flex-col justify-center">
+    <form onSubmit={handleSubmit} className={className}>
       <h3 className="text-lg text-center">Sign in</h3>
       <div className="space-y-4">
         <Field
@@ -46,6 +43,3 @@ export const SignInForm = ({
     </form>
   );
 };
-
-
-

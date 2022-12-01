@@ -1,6 +1,3 @@
-import { Header } from "../Header";
-import { HeaderNav } from "../HeaderNav";
-import { useFormik } from "formik";
 import { Field } from "../Field";
 
 export const SignUpForm = ({
@@ -8,13 +5,13 @@ export const SignUpForm = ({
   handleChange,
   handleBlur,
   isSubmitting,
-  values,
-  errors
+  values = {},
+  errors = {},
+  className,
 }) => {
-
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto h-full flex flex-col justify-center">
-      <h3 className="text-lg text-center">Sign Up</h3>
+    <form onSubmit={handleSubmit} className={className}>
+      <h3 className="text-lg text-center">Sign up</h3>
       <div className="space-y-4">
         <Field
           label="Name"
@@ -26,6 +23,7 @@ export const SignUpForm = ({
           onBlur={handleBlur}
           errorMessage={errors.name}
         />
+
         <Field
           label="Email"
           type="text"
@@ -36,6 +34,7 @@ export const SignUpForm = ({
           onBlur={handleBlur}
           errorMessage={errors.email}
         />
+
         <Field
           label="Password"
           type="password"
@@ -46,26 +45,24 @@ export const SignUpForm = ({
           onBlur={handleBlur}
           errorMessage={errors.password}
         />
+
         <Field
-          label="Repeat Password"
+          label="Confirm your password"
           type="password"
-          name="repeatpassword"
-          value={values.repeatpassword}
+          name="password_confirm"
+          value={values.password_confirm}
           placeholder="your password"
           onChange={handleChange}
           onBlur={handleBlur}
-          errorMessage={errors.repeatpassword}
+          errorMessage={errors.password_confirm}
         />
         <button
           type="submit"
           className="text-red-800 bg-gray-100 px-4 py-4 rounded-lg w-full"
         >
-          Sign Up
+          Sign up
         </button>
       </div>
     </form>
   );
 };
-
-
-
